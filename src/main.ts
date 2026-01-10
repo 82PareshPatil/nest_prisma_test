@@ -4,6 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors(); // Allow Angular to access API
 
   // 1. Create Swagger Config
   const config = new DocumentBuilder()
