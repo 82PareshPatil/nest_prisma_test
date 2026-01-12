@@ -3,6 +3,7 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { CreateProfileDto } from './dto/create-profile.dto';
 
 @ApiTags('Users')
 @Controller('users')
@@ -38,4 +39,16 @@ export class UsersController {
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
   }
+
+  //#endregion
+ 
+  //#region Profile Create
+
+  @Post(':id/profile')
+  createProfile(@Param('id') id: string, @Body() createProfileDto: CreateProfileDto) {
+    return this.usersService.createProfile(+id, createProfileDto);
+  }
+
+  //#endregion
+
 }
