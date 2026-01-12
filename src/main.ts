@@ -11,6 +11,7 @@ async function bootstrap() {
     .setTitle('NestJS Blog Backend')
     .setDescription('The DevBlog API description')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
 
   // 2. Setup Swagger Module
